@@ -40,22 +40,40 @@ This project investigates the clustering behavior of mRNA sequences from two cri
 | RB1  | 69       | 0.659          | 1.176      | 0.082               | 0.18 ± 0.07   |
 
 ## Files in this Repository
-- `clustering_analysis.R` - Main R script for sequence analysis
-- `AXL_RB1_Clustering_Report.pdf` - Complete research report
-- `data/` - Processed sequence data files
-- `figures/` - Generated plots and visualizations
-- `results/` - Clustering outputs and validation metrics
+
+### Analysis Code
+- `CIS6060Project.R` - Main R script containing complete clustering analysis methodology
+
+### Research Output
+- `AXL_RB1_Clustering_Report.pdf` - Complete academic report with methodology, results, and discussion
+
+### Data Files
+- `AXL_cluster_assignments.csv` - Cluster membership for each AXL sequence
+- `RB1_cluster_assignments.csv` - Cluster membership for each RB1 sequence
+- `AXL_distance_matrix.csv` - Pairwise distance matrix for AXL sequences
+- `RB1_distance_matrix.csv` - Pairwise distance matrix for RB1 sequences
+
+### Results & Validation
+- `cluster_validation_metrics.csv` - Silhouette scores, Dunn indices, and other clustering quality metrics
+
+### Files Not Included
+**Note**: The following files are not included in this repository due to GitHub file size limitations:
+- `.RData` workspace file containing all analysis objects and intermediate results
+- Original FASTA sequence files for AXL and RB1 genes from NCBI
+
+These files are available upon request for full reproduction of the analysis.
 
 ## Usage
 ```r
-# Load required libraries
-library(Biostrings)
-library(DECIPHER)
-library(cluster)
-library(ggplot2)
+# Load and run the complete analysis
+source("CIS6060Project.R")
 
-# Run the main analysis script
-source("clustering_analysis.R")
+# View cluster assignments
+axl_clusters <- read.csv("AXL_cluster_assignments.csv")
+rb1_clusters <- read.csv("RB1_cluster_assignments.csv")
+
+# Examine validation metrics
+metrics <- read.csv("cluster_validation_metrics.csv")
 ```
 
 ## Biological Implications
